@@ -1,0 +1,29 @@
+.wrapper {
+  height: calc(100vh - 72px);
+  padding: 260px 64px;
+
+  background-image: url(../../images/homePage/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  margin-bottom: 10px;
+
+  color: #f7f7f7;
+
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.text {
+  margin-bottom: 40px;
+
+  color: #f7f7f7;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
