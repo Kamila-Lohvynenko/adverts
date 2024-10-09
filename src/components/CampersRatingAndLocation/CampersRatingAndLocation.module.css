@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+
+  margin-bottom: 24px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+
+  margin-right: 4px;
+
+  fill: #ffc531;
+}
+.rating {
+  margin-right: 16px;
+}
+.map {
+  width: 16px;
+  height: 16px;
+
+  margin-right: 4px;
+}
