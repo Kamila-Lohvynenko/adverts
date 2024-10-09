@@ -1,0 +1,18 @@
+.page {
+  padding: 48px 64px 80px;
+}
+
+.title {
+  margin-bottom: 8px;
+
+  font-size: 24px;
+
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}

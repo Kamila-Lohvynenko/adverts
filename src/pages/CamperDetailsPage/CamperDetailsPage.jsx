@@ -1,10 +1,35 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchCamperById } from "../../redux/campers/operations";
+import { selectChosenCamper } from "../../redux/campers/selectors";
+import css from "./CamperDetailsPage.module.css";
+import CampersRatingAndLocation from "../../components/CampersRatingAndLocation/CampersRatingAndLocation";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
-  console.log(id);
+  const dispatch = useDispatch();
 
-  return <div>CamperDetailsPage</div>;
+  useEffect(() => {
+    async function name() {
+      await dispatch(fetchCamperById(id)).unwrap();
+    }
+    name();
+  }, [id, dispatch]);
+
+  const selectedCamper = useSelector(selectChosenCamper);
+  console.log(selectedCamper);
+  if (!selectedCamper) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className={css.page}>
+      <p className={css.title}>{selectedCamper.name}</p>
+      <CampersRatingAndLocation camper={selectedCamper} />
+      <p className={css.price}>€{selectedCamper.price}.00</p>
+    </div>
+  );
 };
 
 export default CamperDetailsPage;

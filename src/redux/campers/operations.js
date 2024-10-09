@@ -14,3 +14,17 @@ export const fetchCampers = createAsyncThunk(
     }
   }
 );
+
+export const fetchCamperById = createAsyncThunk(
+  "campers/fetchOne",
+  async (id, thunkAPI) => {
+    console.log(id);
+
+    try {
+      const response = await axios.get(`/campers/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

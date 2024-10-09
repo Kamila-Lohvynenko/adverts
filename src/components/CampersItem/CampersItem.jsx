@@ -5,7 +5,6 @@ import CampersRatingAndLocation from "../CampersRatingAndLocation/CampersRatingA
 import BadgesList from "../BadgesList/BadgesList";
 
 const CampersItem = ({ camper }) => {
-  console.log(camper);
   const navigate = useNavigate();
 
   return (
