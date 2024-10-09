@@ -3,10 +3,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
-const FavoritesPage = lazy(() =>
-  import("../pages/FavoritesPage/FavoritesPage")
-);
 const CatalogPage = lazy(() => import("../pages/CatalogPage/CatalogPage"));
+const CamperDetailsPage = lazy(() =>
+  import("../pages/CamperDetailsPage/CamperDetailsPage")
+);
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CamperDetailsPage />} />
         </Routes>
       </Suspense>
     </>
