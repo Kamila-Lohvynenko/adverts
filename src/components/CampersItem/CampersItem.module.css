@@ -5,7 +5,7 @@
   border-radius: 10px;
 }
 
-.wrapper {
+.firstLineWrapper {
   display: flex;
   justify-content: space-between;
 
@@ -18,9 +18,42 @@
   line-height: 32px;
 }
 
+.secondLineWrapper {
+  display: flex;
+
+  margin-bottom: 24px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+
+  margin-right: 4px;
+
+  fill: #ffc531;
+}
+.rating {
+  margin-right: 16px;
+}
+.map {
+  width: 16px;
+  height: 16px;
+
+  margin-right: 4px;
+}
+
 .description {
+  margin-bottom: 24px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 525px;
+}
+.badgesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 24px;
 }
