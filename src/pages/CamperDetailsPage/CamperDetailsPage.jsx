@@ -5,6 +5,7 @@ import { fetchCamperById } from "../../redux/campers/operations";
 import { selectChosenCamper } from "../../redux/campers/selectors";
 import css from "./CamperDetailsPage.module.css";
 import CampersRatingAndLocation from "../../components/CampersRatingAndLocation/CampersRatingAndLocation";
+import GalleryList from "../../components/GalleryList/GalleryList";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -28,6 +29,8 @@ const CamperDetailsPage = () => {
       <p className={css.title}>{selectedCamper.name}</p>
       <CampersRatingAndLocation camper={selectedCamper} />
       <p className={css.price}>€{selectedCamper.price}.00</p>
+      <GalleryList gallery={selectedCamper.gallery} />
+      <p className={css.description}>{selectedCamper.description}</p>
     </div>
   );
 };
