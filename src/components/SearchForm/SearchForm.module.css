@@ -1,3 +1,8 @@
+.locationTitle {
+  margin-bottom: 8px;
+
+  color: #6c717b;
+}
 .locationWrapper {
   position: relative;
   margin-bottom: 40px;
@@ -17,6 +22,13 @@
   position: absolute;
   top: 18px;
   left: 20px;
+}
+.filtersTitle {
+  margin-bottom: 32px;
+
+  color: #475467;
+
+  font-weight: 500;
 }
 
 .filterName {

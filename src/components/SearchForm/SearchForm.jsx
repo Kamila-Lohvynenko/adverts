@@ -2,14 +2,13 @@ import sprite from "../../images/sprite.svg";
 import { Formik, Form, Field } from "formik";
 import css from "./SearchForm.module.css";
 import Button from "../Button/Button";
-import { useSelector } from "react-redux";
-import { selectCampers } from "../../redux/campers/selectors";
+// import { useSelector } from "react-redux";
+// import { selectCampers } from "../../redux/campers/selectors";
 
 const SearchForm = () => {
   const equipmentOptions = ["AC", "Automatic", "Kitchen", "TV", "Bathroom"];
   const vehicleTypeOptions = ["Van", "Fully Integrated", "Alcove"];
-  const campers = useSelector(selectCampers);
-  console.log(campers);
+  // const campers = useSelector(selectCampers);
 
   // Initial form values
   const initialValues = {
@@ -26,14 +25,16 @@ const SearchForm = () => {
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form className="vehicle-filter-form">
         {/* Location */}
+        <h5 className={css.locationTitle}>Location</h5>
         <div className={css.locationWrapper}>
           <Field
             className={css.locationInput}
             name="location"
             id="location"
             list="location-name"
+            placeholder="Enter your city..."
           />
-          <datalist id="location-name">
+          {/* <datalist id="location-name">
             {campers.map((camper) => {
               return (
                 <option key={camper.id} value={camper.location}>
@@ -41,14 +42,14 @@ const SearchForm = () => {
                 </option>
               );
             })}
-          </datalist>
+          </datalist> */}
           <svg height={20} width={20} className={css.locationIcon}>
             <use href={`${sprite}#icon-map`} />
           </svg>
         </div>
 
         {/* Filters Section */}
-        <h4>Filters</h4>
+        <h4 className={css.filtersTitle}>Filters</h4>
 
         {/* Vehicle Equipment (Checkboxes) */}
         <div className={css.equipments}>
