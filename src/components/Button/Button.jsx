@@ -1,8 +1,11 @@
+import clsx from "clsx/lite";
 import css from "./Button.module.css";
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, classCss }) => {
+  const className = clsx(css.button, classCss && css[classCss]);
+
   return (
-    <button className={css.button} onClick={onClick} type="submit">
+    <button className={className} onClick={onClick} type="submit">
       {text}
     </button>
   );

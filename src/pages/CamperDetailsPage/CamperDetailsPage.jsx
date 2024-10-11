@@ -7,6 +7,7 @@ import css from "./CamperDetailsPage.module.css";
 import CampersRatingAndLocation from "../../components/CampersRatingAndLocation/CampersRatingAndLocation";
 import GalleryList from "../../components/GalleryList/GalleryList";
 import { resetItems } from "../../redux/campers/slice";
+import SectionWithForm from "../../components/SectionWithForm/SectionWithForm";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -34,6 +35,7 @@ const CamperDetailsPage = () => {
       <p className={css.price}>€{selectedCamper.price}.00</p>
       <GalleryList gallery={selectedCamper.gallery} />
       <p className={css.description}>{selectedCamper.description}</p>
+      <SectionWithForm />
     </div>
   );
 };

@@ -66,7 +66,7 @@ const CatalogPage = () => {
   return (
     <div className={css.page}>
       <SearchForm onSearch={onSearch} />
-      {isNotFound ? (
+      {isNotFound && !loading ? (
         <NotFoundComponent />
       ) : (
         <div>

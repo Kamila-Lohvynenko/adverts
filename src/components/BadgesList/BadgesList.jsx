@@ -12,6 +12,7 @@ const BadgesList = ({ camper }) => {
       {camper.AC && <BadgesContainer badge="AC" />}
       {camper.TV && <BadgesContainer badge="TV" />}
       {camper.bathroom && <BadgesContainer badge="Bathroom" />}
+      {camper.radio && <BadgesContainer badge="Radio" />}
     </div>
   );
 };

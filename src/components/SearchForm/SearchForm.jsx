@@ -60,7 +60,6 @@ const SearchForm = ({ onSearch }) => {
           params.set("transmission", equipmentName.Automatic.toLowerCase());
           break;
         default:
-          // Handle any other cases if needed
           break;
       }
     });
@@ -88,7 +87,7 @@ const SearchForm = ({ onSearch }) => {
             className={css.locationInput}
             name="locationName"
             id="locationName"
-            placeholder="Enter your city..."
+            placeholder="City"
           />
           <svg height={20} width={20} className={css.locationIcon}>
             <use href={`${sprite}#icon-map`} />
