@@ -1,12 +1,9 @@
 import css from "./CampersItem.module.css";
-import { useNavigate } from "react-router-dom";
-import Button from "../Button/Button";
 import CampersRatingAndLocation from "../CampersRatingAndLocation/CampersRatingAndLocation";
 import BadgesList from "../BadgesList/BadgesList";
+import RedirectLink from "../RedirectLink/RedirectLink";
 
 const CampersItem = ({ camper }) => {
-  const navigate = useNavigate();
-
   return (
     <>
       <img className={css.image} src={camper.gallery[0].original} />
@@ -18,10 +15,7 @@ const CampersItem = ({ camper }) => {
         <CampersRatingAndLocation camper={camper} />
         <p className={css.description}>{camper.description}</p>
         <BadgesList camper={camper} />
-        <Button
-          text="Show more"
-          onClick={() => navigate(`/catalog/${camper.id}`)}
-        />
+        <RedirectLink text="Show more" redirectTo={`/catalog/${camper.id}`} />
       </div>
     </>
   );

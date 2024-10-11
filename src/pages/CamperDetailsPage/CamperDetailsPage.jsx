@@ -6,12 +6,15 @@ import { selectChosenCamper } from "../../redux/campers/selectors";
 import css from "./CamperDetailsPage.module.css";
 import CampersRatingAndLocation from "../../components/CampersRatingAndLocation/CampersRatingAndLocation";
 import GalleryList from "../../components/GalleryList/GalleryList";
+import { resetItems } from "../../redux/campers/slice";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(resetItems());
+
     async function name() {
       await dispatch(fetchCamperById(id)).unwrap();
     }

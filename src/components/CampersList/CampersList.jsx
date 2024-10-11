@@ -5,7 +5,6 @@ import CampersItem from "../CampersItem/CampersItem";
 
 const CampersList = () => {
   const campers = useSelector(selectCampers);
-
   return (
     <ul className={css.list}>
       {campers.map((camper) => {

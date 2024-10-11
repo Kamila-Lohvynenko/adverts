@@ -6,13 +6,19 @@ const campersSlice = createSlice({
   initialState: {
     items: [],
     chosenItem: null,
+    total: null,
     error: null,
+  },
+  reducers: {
+    resetItems: (state) => {
+      state.items = [];
+    },
   },
   extraReducers: (builder) =>
     builder
       .addCase(fetchCampers.fulfilled, (state, { payload }) => {
-        state.items = payload.items;
-        //   console.log(payload.items);
+        state.items = [...state.items, ...payload.items];
+        state.total = payload.total;
       })
       .addCase(fetchCamperById.fulfilled, (state, { payload }) => {
         state.chosenItem = payload;
@@ -20,3 +26,4 @@ const campersSlice = createSlice({
 });
 
 export const campersReducer = campersSlice.reducer;
+export const { resetItems } = campersSlice.actions;
