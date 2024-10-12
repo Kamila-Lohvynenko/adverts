@@ -19,6 +19,7 @@ import SectionsToggler from "../../components/SectionsToggler/SectionsToggler";
 import Loader from "../../components/Loader/Loader";
 import NotFoundComponent from "../../components/NotFoundComponent/NotFoundComponent";
 import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import { Toaster } from "react-hot-toast";
 
 const CamperDetailsPage = () => {
   const [isFeaturesShown, setIsFeaturesShown] = useState(true);
@@ -63,6 +64,7 @@ const CamperDetailsPage = () => {
       {loading && <Loader />}
       {isNotFound && <NotFoundComponent classCss="center" />}
       {isError && <ErrorComponent classCss="center" />}
+      <Toaster position="top-right" />
     </div>
   );
 };

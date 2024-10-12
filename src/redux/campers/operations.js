@@ -15,7 +15,6 @@ export const fetchCampers = createAsyncThunk(
         ? `${acc}&${encodeURIComponent(key)}=${value}`
         : `${encodeURIComponent(key)}=${value}`;
     }, "");
-    console.log(queryString);
 
     try {
       const response = await axios.get(`/campers?${queryString}&limit=5`);

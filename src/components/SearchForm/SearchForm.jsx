@@ -6,9 +6,10 @@ import { useSearchParams } from "react-router-dom";
 import { equipmentName, vehicleTypeName } from "../../constants";
 import { toCamelCase } from "../../utils/toCamelCase";
 import { useSelector } from "react-redux";
-// import { selectCampers } from "../../redux/campers/selectors";
 import { searchParamsNames } from "./../../constants/index";
 import { selectButtonDisabled } from "../../redux/campers/selectors";
+import { deepEqual } from "../../utils/compareTwoObjects";
+import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 const SearchForm = ({ onSearch }) => {
   const equipmentOptions = [
@@ -17,6 +18,9 @@ const SearchForm = ({ onSearch }) => {
     equipmentName.Kitchen,
     equipmentName.TV,
     equipmentName.Bathroom,
+    equipmentName.Refrigerator,
+    equipmentName.Microwave,
+    equipmentName.Radio,
   ];
   const vehicleTypeOptions = [
     vehicleTypeName.Van,
@@ -24,22 +28,51 @@ const SearchForm = ({ onSearch }) => {
     vehicleTypeName.Alcove,
     vehicleTypeName.PanelTrack,
   ];
-  // const campers = useSelector(selectCampers);
-  const isDisabled = useSelector(selectButtonDisabled);
-  console.log(isDisabled);
 
-  // Initial form values
-  const initialValues = {
-    equipment: [],
-    vehicleType: "",
-    locationName: "",
-  };
+  const isDisabled = useSelector(selectButtonDisabled);
 
   // Handle form submission
   const [params, setParams] = useSearchParams();
+  const paramObject = {};
+
+  searchParamsNames.forEach((item) => {
+    paramObject[item] = params.get(item);
+  });
+
+  const getInitialEquipment = () => {
+    const initialArray = [];
+    for (let key in paramObject) {
+      if (key === "transmission") {
+        initialArray.push(capitalizeFirstLetter(paramObject[key]));
+      }
+      if (paramObject[key]) {
+        initialArray.push(capitalizeFirstLetter(key));
+      }
+    }
+    return initialArray;
+  };
+
+  const getInitialVehicleType = () => {
+    let initialValue = "";
+
+    if (paramObject.form) {
+      initialValue = capitalizeFirstLetter(paramObject.form);
+    }
+
+    return initialValue;
+  };
+
+  // Initial form values
+  const initialValues = {
+    equipment: getInitialEquipment(),
+    vehicleType: getInitialVehicleType()
+      .replace(/([A-Z])/g, " $1")
+      .trim(),
+    locationName: paramObject.location || "",
+  };
+
   const handleSubmit = (values) => {
     const { equipment, vehicleType, locationName } = values;
-    console.log({ equipment, vehicleType, locationName });
 
     searchParamsNames.forEach((item) => params.delete(item));
 
@@ -60,6 +93,15 @@ const SearchForm = ({ onSearch }) => {
         case equipmentName.Automatic:
           params.set("transmission", equipmentName.Automatic.toLowerCase());
           break;
+        case equipmentName.Radio:
+          params.set(equipmentName.Radio.toLowerCase(), true);
+          break;
+        case equipmentName.Refrigerator:
+          params.set(equipmentName.Refrigerator.toLowerCase(), true);
+          break;
+        case equipmentName.Microwave:
+          params.set(equipmentName.Microwave.toLowerCase(), true);
+          break;
         default:
           break;
       }
@@ -73,9 +115,15 @@ const SearchForm = ({ onSearch }) => {
       params.set("location", locationName);
     }
 
-    onSearch();
+    const newParamsObject = {};
+    searchParamsNames.forEach((item) => {
+      newParamsObject[item] = params.get(item);
+    });
 
     setParams(params);
+    if (deepEqual(paramObject, newParamsObject)) return;
+
+    onSearch();
   };
 
   return (
@@ -105,11 +153,12 @@ const SearchForm = ({ onSearch }) => {
             {equipmentOptions.map((option) => (
               <div key={option}>
                 <Field
-                  className={css.input}
+                  // className={css.input}
                   type="checkbox"
                   name="equipment"
                   value={option}
                   id={option}
+                  className={css.input}
                 />
                 <label className={css.label} htmlFor={option}>
                   <svg height={20} width={20}>
@@ -137,9 +186,9 @@ const SearchForm = ({ onSearch }) => {
                   name="vehicleType"
                   value={option}
                   className={css.input}
-                  id={option}
+                  id={toCamelCase(option)}
                 />
-                <label className={css.label} htmlFor={option}>
+                <label className={css.label} htmlFor={toCamelCase(option)}>
                   <svg height={20} width={20}>
                     <use
                       href={`${sprite}#icon-${option

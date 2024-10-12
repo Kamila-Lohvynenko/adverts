@@ -7,7 +7,6 @@ const handlePending = (state) => {
   state.loading = true;
 };
 const handleRejected = (state, { payload }) => {
-  console.log(payload);
   if (payload.status === 404) {
     state.notFound = true;
     state.loading = false;

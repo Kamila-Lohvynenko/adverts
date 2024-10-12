@@ -3,7 +3,6 @@ import css from "./Button.module.css";
 
 const Button = ({ text, onClick, classCss, isDisabled = false }) => {
   const className = clsx(css.button, classCss && css[classCss]);
-  console.log(isDisabled);
 
   return (
     <button

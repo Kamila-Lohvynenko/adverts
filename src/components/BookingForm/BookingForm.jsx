@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import DatePicker from "react-datepicker";
+import toast from "react-hot-toast";
 
 // Validation Schema
 const validationSchema = Yup.object({
@@ -36,8 +37,14 @@ const CustomDatePicker = ({ field, form }) => {
 
 const BookingForm = () => {
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+    // imitation request
+    try {
+      console.log(values);
+      toast.success("Your request has been sent successfully");
+      resetForm();
+    } catch {
+      toast.error("Your request has not been sent");
+    }
   };
 
   return (

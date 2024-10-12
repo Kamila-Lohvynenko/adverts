@@ -22,7 +22,7 @@
 }
 
 .button:disabled {
-  background-color: azure;
+  background-color: rgba(110, 112, 112, 0.482);
 }
 .center {
   margin-left: auto;

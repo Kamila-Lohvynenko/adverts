@@ -4,6 +4,9 @@ export const equipmentName = {
   Kitchen: "Kitchen",
   TV: "TV",
   Bathroom: "Bathroom",
+  Microwave: "Microwave",
+  Refrigerator: "Refrigerator",
+  Radio: "Radio",
 };
 export const vehicleTypeName = {
   Van: "Van",
@@ -20,4 +23,7 @@ export const searchParamsNames = [
   "TV",
   "AC",
   "location",
+  "refrigerator",
+  "microwave",
+  "radio",
 ];
