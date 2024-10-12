@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 16px;
+
+  font-weight: 500;
+}
+
+.description {
+  text-align: right;
+}

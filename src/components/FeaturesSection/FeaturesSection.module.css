@@ -1,0 +1,24 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  gap: 100px;
+
+  width: 631px;
+  padding: 44px 54px;
+
+  border-radius: 10px;
+  background: #f7f7f7;
+}
+
+.title {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+
+  border-bottom: solid 1px #dadde1;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}

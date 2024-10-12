@@ -1,0 +1,17 @@
+.wrapper {
+  border-bottom: solid #dadde1;
+  margin-bottom: 44px;
+}
+
+.button {
+  display: inline-block;
+  margin-right: 40px;
+  padding-bottom: 24px;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.active {
+  border-bottom: solid 5px #e44848;
+}

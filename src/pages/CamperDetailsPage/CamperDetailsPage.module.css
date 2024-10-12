@@ -22,3 +22,8 @@
 .description {
   margin-bottom: 60px;
 }
+
+.sectionsWrapper {
+  display: flex;
+  gap: 40px;
+}
