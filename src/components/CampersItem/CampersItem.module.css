@@ -26,10 +26,6 @@
   text-overflow: ellipsis;
   width: 525px;
 }
-/* .badgesWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-
-  margin-bottom: 24px;
-} */
+.price {
+  display: inline-block;
+}

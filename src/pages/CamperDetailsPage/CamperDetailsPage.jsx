@@ -28,7 +28,7 @@ const CamperDetailsPage = () => {
   }, [id, dispatch]);
 
   const selectedCamper = useSelector(selectChosenCamper);
-  console.log(selectedCamper);
+
   if (!selectedCamper) {
     return <div>Loading...</div>;
   }

@@ -1,0 +1,14 @@
+.icon {
+  width: 26px;
+  height: 24px;
+
+  transform: translateY(2px);
+}
+
+.favorite {
+  fill: #e44848;
+}
+
+.button {
+  padding: 12px;
+}

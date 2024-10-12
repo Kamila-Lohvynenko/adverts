@@ -4,7 +4,7 @@ import css from "./SearchForm.module.css";
 import Button from "../Button/Button";
 import { useSearchParams } from "react-router-dom";
 import { equipmentName, vehicleTypeName } from "../../constants";
-import { toCamelCase } from "../../helpers/toCamelCase";
+import { toCamelCase } from "../../utils/toCamelCase";
 // import { useSelector } from "react-redux";
 // import { selectCampers } from "../../redux/campers/selectors";
 import { searchParamsNames } from "./../../constants/index";
