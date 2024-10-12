@@ -1,11 +1,17 @@
 import clsx from "clsx/lite";
 import css from "./Button.module.css";
 
-const Button = ({ text, onClick, classCss }) => {
+const Button = ({ text, onClick, classCss, isDisabled = false }) => {
   const className = clsx(css.button, classCss && css[classCss]);
+  console.log(isDisabled);
 
   return (
-    <button className={className} onClick={onClick} type="submit">
+    <button
+      className={className}
+      onClick={onClick}
+      type="submit"
+      disabled={isDisabled}
+    >
       {text}
     </button>
   );

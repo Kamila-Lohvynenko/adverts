@@ -5,9 +5,10 @@ import Button from "../Button/Button";
 import { useSearchParams } from "react-router-dom";
 import { equipmentName, vehicleTypeName } from "../../constants";
 import { toCamelCase } from "../../utils/toCamelCase";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { selectCampers } from "../../redux/campers/selectors";
 import { searchParamsNames } from "./../../constants/index";
+import { selectButtonDisabled } from "../../redux/campers/selectors";
 
 const SearchForm = ({ onSearch }) => {
   const equipmentOptions = [
@@ -24,6 +25,8 @@ const SearchForm = ({ onSearch }) => {
     vehicleTypeName.PanelTrack,
   ];
   // const campers = useSelector(selectCampers);
+  const isDisabled = useSelector(selectButtonDisabled);
+  console.log(isDisabled);
 
   // Initial form values
   const initialValues = {
@@ -35,8 +38,6 @@ const SearchForm = ({ onSearch }) => {
   // Handle form submission
   const [params, setParams] = useSearchParams();
   const handleSubmit = (values) => {
-    console.log(values);
-
     const { equipment, vehicleType, locationName } = values;
     console.log({ equipment, vehicleType, locationName });
 
@@ -154,7 +155,7 @@ const SearchForm = ({ onSearch }) => {
         </div>
 
         {/* Search Button */}
-        <Button text="Search" />
+        <Button text="Search" isDisabled={isDisabled} />
       </Form>
     </Formik>
   );

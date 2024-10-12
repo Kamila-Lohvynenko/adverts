@@ -11,6 +11,10 @@ export const selectShownMoreBtn = createSelector(
     return campers.length > 0 && campers.length < total;
   }
 );
-export const selectNotFound = createSelector([selectCampers], (campers) => {
-  return campers.length === 0;
-});
+export const selectNotFound = (store) => store.campers.notFound;
+export const selectButtonDisabled = createSelector(
+  [selectError, selectLoading],
+  (error, loading) => {
+    return error || loading;
+  }
+);

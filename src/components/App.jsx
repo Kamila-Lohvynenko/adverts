@@ -9,6 +9,8 @@ const CamperDetailsPage = lazy(() =>
   import("../pages/CamperDetailsPage/CamperDetailsPage")
 );
 
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
+
 function App() {
   return (
     <>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/catalog/:id" element={<CamperDetailsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </>

@@ -5,8 +5,10 @@ import CampersList from "../../components/CampersList/CampersList";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import css from "./CatalogPage.module.css";
 import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
-// import Loader from "./../../components/Loader/Loader";
+import Loader from "./../../components/Loader/Loader";
 import {
+  selectError,
+  selectLoading,
   selectNotFound,
   selectShownMoreBtn,
 } from "../../redux/campers/selectors";
@@ -14,14 +16,15 @@ import { useSearchParams } from "react-router-dom";
 import { resetItems } from "../../redux/campers/slice";
 import { searchParamsNames } from "../../constants";
 import NotFoundComponent from "../../components/NotFoundComponent/NotFoundComponent";
-// import { removeNulls } from "../../helpers/removeNullFromObj";
+import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
 
 const CatalogPage = () => {
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
 
+  const loading = useSelector(selectLoading);
   const shownMoreBtn = useSelector(selectShownMoreBtn);
   const isNotFound = useSelector(selectNotFound);
+  const isError = useSelector(selectError);
 
   const [params] = useSearchParams();
   const memoizedParamObject = useMemo(() => {
@@ -36,9 +39,7 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function name() {
-      await setLoading(true);
       await dispatch(fetchCampers({ page, ...memoizedParamObject }));
-      await setLoading(false);
     }
     name();
   }, [dispatch, page, memoizedParamObject]);
@@ -52,30 +53,20 @@ const CatalogPage = () => {
     setPage(1);
   };
 
-  // return loading ? (
-  //   <Loader />
-  // ) : (
-  //   <div className={css.page}>
-  //     <SearchForm />
-  //     <div>
-  //       <CampersList handleLoadMore={handleLoadMore} />
-  //       <LoadMoreButton onClick={handleLoadMore} />
-  //     </div>
-  //   </div>
-  // );
   return (
     <div className={css.page}>
       <SearchForm onSearch={onSearch} />
-      {isNotFound && !loading ? (
-        <NotFoundComponent />
-      ) : (
-        <div>
+      <div className={css.listWrapper}>
+        {!isError && !isNotFound && (
           <CampersList handleLoadMore={handleLoadMore} />
-          {!loading && shownMoreBtn && (
-            <LoadMoreButton onClick={handleLoadMore} />
-          )}
-        </div>
-      )}
+        )}
+        {!loading && shownMoreBtn && (
+          <LoadMoreButton onClick={handleLoadMore} />
+        )}
+        {loading && <Loader />}
+        {isNotFound && !loading && <NotFoundComponent />}
+        {isError && !loading && <ErrorComponent />}
+      </div>
     </div>
   );
 };

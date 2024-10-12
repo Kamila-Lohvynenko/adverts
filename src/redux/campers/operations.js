@@ -21,7 +21,9 @@ export const fetchCampers = createAsyncThunk(
       const response = await axios.get(`/campers?${queryString}&limit=5`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      const { status, message } = error;
+
+      return thunkAPI.rejectWithValue({ status, message });
     }
   }
 );
@@ -33,7 +35,9 @@ export const fetchCamperById = createAsyncThunk(
       const response = await axios.get(`/campers/${id}`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      const { status, message } = error;
+
+      return thunkAPI.rejectWithValue({ status, message });
     }
   }
 );
