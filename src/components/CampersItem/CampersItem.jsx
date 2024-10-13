@@ -27,7 +27,7 @@ const CampersItem = ({ camper }) => {
         <div className={css.firstLineWrapper}>
           <p className={css.name}>{camper.name}</p>
           <div className={css.priceWrapper}>
-            <p className={css.price}>€{camper.price}.00</p>
+            <p className={css.price}>€{camper.price.toFixed(2)}</p>
             <FavoriteButton
               onClick={handleSetFavorite}
               isFavorite={isFavorite}
