@@ -3,7 +3,11 @@ import { Formik, Form, Field } from "formik";
 import css from "./SearchForm.module.css";
 import Button from "../Button/Button";
 import { useSearchParams } from "react-router-dom";
-import { equipmentName, vehicleTypeName } from "../../constants";
+import {
+  equipmentName,
+  equipmentOptions,
+  vehicleTypeOptions,
+} from "../../constants";
 import { toCamelCase } from "../../utils/toCamelCase";
 import { useSelector } from "react-redux";
 import { searchParamsNames } from "./../../constants/index";
@@ -12,23 +16,6 @@ import { deepEqual } from "../../utils/compareTwoObjects";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 const SearchForm = ({ onSearch }) => {
-  const equipmentOptions = [
-    equipmentName.AC,
-    equipmentName.Automatic,
-    equipmentName.Kitchen,
-    equipmentName.TV,
-    equipmentName.Bathroom,
-    equipmentName.Refrigerator,
-    equipmentName.Microwave,
-    equipmentName.Radio,
-  ];
-  const vehicleTypeOptions = [
-    vehicleTypeName.Van,
-    vehicleTypeName.FullyIntegrated,
-    vehicleTypeName.Alcove,
-    vehicleTypeName.PanelTrack,
-  ];
-
   const isDisabled = useSelector(selectButtonDisabled);
 
   // Handle form submission
@@ -38,6 +25,8 @@ const SearchForm = ({ onSearch }) => {
   searchParamsNames.forEach((item) => {
     paramObject[item] = params.get(item);
   });
+
+  // Functions to get initial values for form
 
   const getInitialEquipment = () => {
     const initialArray = [];

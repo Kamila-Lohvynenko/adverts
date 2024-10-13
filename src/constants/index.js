@@ -27,3 +27,20 @@ export const searchParamsNames = [
   "microwave",
   "radio",
 ];
+
+export const equipmentOptions = [
+  equipmentName.AC,
+  equipmentName.Automatic,
+  equipmentName.Kitchen,
+  equipmentName.TV,
+  equipmentName.Bathroom,
+  equipmentName.Refrigerator,
+  equipmentName.Microwave,
+  equipmentName.Radio,
+];
+export const vehicleTypeOptions = [
+  vehicleTypeName.Van,
+  vehicleTypeName.FullyIntegrated,
+  vehicleTypeName.Alcove,
+  vehicleTypeName.PanelTrack,
+];

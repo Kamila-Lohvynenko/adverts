@@ -8,13 +8,7 @@ export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
   async (param, thunkAPI) => {
     const existingParams = removeNulls(param);
-
-    const queryString = Object.keys(existingParams).reduce((acc, key) => {
-      const value = encodeURIComponent(existingParams[key]);
-      return acc
-        ? `${acc}&${encodeURIComponent(key)}=${value}`
-        : `${encodeURIComponent(key)}=${value}`;
-    }, "");
+    const queryString = new URLSearchParams(existingParams);
 
     try {
       const response = await axios.get(`/campers?${queryString}&limit=5`);
