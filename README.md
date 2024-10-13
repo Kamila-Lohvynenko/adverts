@@ -56,7 +56,7 @@ GET https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers
 
 ### GET /campers/:id
 
-Retrieve information about a specific camper (travel route) by its ID.
+Retrieve information about a specific camper by its ID.
 
 Example Request:
 
@@ -66,11 +66,11 @@ GET https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/1
 
 ## Technologies
 
-Frontend: js, React, Redux
-Backend API: MockAPI (https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers)
-Hosting: Vercel
-Styling: Module CSS
-Database: MockAPI (for demo purposes)
+- Frontend: js, React, Redux
+- Backend API: MockAPI (https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers)
+- Hosting: Vercel
+- Styling: Module CSS
+- Database: MockAPI (for demo purposes)
 
 ## Author
 
