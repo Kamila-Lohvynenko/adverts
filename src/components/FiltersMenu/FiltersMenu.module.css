@@ -37,10 +37,15 @@
   top: 10px;
   right: 10px;
 
+  width: 32px;
+  height: 32px;
+
   background: none;
-  border: none;
   cursor: pointer;
   outline: none;
+
+  border: solid #807e7e 1px;
+  border-radius: 50%;
 }
 
 .closeButton:hover {
@@ -48,6 +53,6 @@
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 10px;
+  height: 10px;
 }
