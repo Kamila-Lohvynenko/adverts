@@ -28,8 +28,19 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 525px;
+  width: 260px;
 }
+@media only screen and (min-width: 768px) {
+  .description {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .description {
+    width: 525px;
+  }
+}
+
 .price {
   display: inline-block;
 }

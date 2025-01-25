@@ -15,7 +15,7 @@ import { selectButtonDisabled } from "../../redux/campers/selectors";
 import { deepEqual } from "../../utils/compareTwoObjects";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
-const SearchForm = ({ onSearch }) => {
+const SearchForm = ({ onSearch, closeMenu }) => {
   const isDisabled = useSelector(selectButtonDisabled);
 
   // Handle form submission
@@ -113,6 +113,9 @@ const SearchForm = ({ onSearch }) => {
     if (deepEqual(paramObject, newParamsObject)) return;
 
     onSearch();
+    if (closeMenu) {
+      closeMenu();
+    }
   };
 
   return (

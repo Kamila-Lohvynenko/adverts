@@ -1,10 +1,43 @@
 .page {
   display: flex;
-  gap: 64px;
+  flex-direction: column;
 
-  padding: 48px 64px 52px;
+  gap: 24px;
+
+  padding: 16px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .page {
+    flex-direction: row;
+    gap: 64px;
+
+    padding: 48px 64px 52px;
+  }
 }
 
 .listWrapper {
-  width: 888px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .listWrapper {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .listWrapper {
+    width: 888px;
+  }
+}
+
+.searchForm {
+  display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .searchForm {
+    display: block;
+  }
 }

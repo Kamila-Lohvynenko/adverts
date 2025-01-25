@@ -1,0 +1,31 @@
+.filtersButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  background-color: #ff2a00;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filtersButton:hover {
+  background-color: rgb(161, 8, 8);
+  transform: scale(1.05);
+}
+
+.filtersButton:active {
+  transform: scale(0.95);
+}
+
+@media only screen and (min-width: 1200px) {
+  .filtersButton {
+    display: none;
+  }
+}

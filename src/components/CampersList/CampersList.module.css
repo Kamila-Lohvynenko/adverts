@@ -1,11 +1,25 @@
 .item {
   display: flex;
+  flex-direction: column;
   gap: 24px;
-  width: 888px;
+  width: 100%;
 
-  padding: 24px;
+  padding: 8px;
   margin-bottom: 32px;
 
   border-radius: 20px;
   border: 1px solid #dadde1;
+}
+
+@media only screen and (min-width: 768px) {
+  .item {
+    flex-direction: row;
+    /* width: 400px; */
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .item {
+    width: 888px;
+  }
 }

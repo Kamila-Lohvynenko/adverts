@@ -17,6 +17,7 @@ import { resetItems } from "../../redux/campers/slice";
 import { searchParamsNames } from "../../constants";
 import NotFoundComponent from "../../components/NotFoundComponent/NotFoundComponent";
 import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import FiltersMenu from "../../components/FiltersMenu/FiltersMenu";
 
 const CatalogPage = () => {
   const [page, setPage] = useState(1);
@@ -55,7 +56,10 @@ const CatalogPage = () => {
 
   return (
     <div className={css.page}>
-      <SearchForm onSearch={onSearch} />
+      <FiltersMenu />
+      <div className={css.searchForm}>
+        <SearchForm onSearch={onSearch} />
+      </div>
       <div className={css.listWrapper}>
         {!isError && !isNotFound && (
           <CampersList handleLoadMore={handleLoadMore} />
