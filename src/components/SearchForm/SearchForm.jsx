@@ -16,6 +16,8 @@ import { deepEqual } from "../../utils/compareTwoObjects";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 const SearchForm = ({ onSearch, closeMenu }) => {
+  console.log(closeMenu);
+
   const isDisabled = useSelector(selectButtonDisabled);
 
   // Handle form submission
@@ -109,13 +111,16 @@ const SearchForm = ({ onSearch, closeMenu }) => {
       newParamsObject[item] = params.get(item);
     });
 
+    if (closeMenu) {
+      console.log("aaaaaaaaaaa");
+
+      closeMenu();
+    }
+
     setParams(params);
     if (deepEqual(paramObject, newParamsObject)) return;
 
     onSearch();
-    if (closeMenu) {
-      closeMenu();
-    }
   };
 
   return (

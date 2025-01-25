@@ -56,7 +56,7 @@ const CatalogPage = () => {
 
   return (
     <div className={css.page}>
-      <FiltersMenu />
+      <FiltersMenu onSearch={onSearch} />
       <div className={css.searchForm}>
         <SearchForm onSearch={onSearch} />
       </div>
