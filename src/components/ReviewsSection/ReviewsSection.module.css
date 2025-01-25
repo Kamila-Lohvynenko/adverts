@@ -1,7 +1,13 @@
 .item {
-  width: 631px;
+  width: 100%;
 
   margin-bottom: 44px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .item {
+    width: 631px;
+  }
 }
 
 .item:last-child {

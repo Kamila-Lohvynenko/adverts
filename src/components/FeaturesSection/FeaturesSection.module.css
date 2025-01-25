@@ -5,11 +5,18 @@
 
   gap: 100px;
 
-  width: 631px;
+  width: 100%;
+
   padding: 44px 54px;
 
   border-radius: 10px;
   background: #f7f7f7;
+}
+
+@media only screen and (min-width: 1200px) {
+  .section {
+    width: 631px;
+  }
 }
 
 .title {
